@@ -1,0 +1,44 @@
+
+inoremap jk <ESC>
+let mapleader = " "
+set noswapfile
+set nu
+set autoindent
+set softtabstop=2
+set mouse=a
+syntax on
+vnoremap . :norm.<CR>
+
+set hidden
+
+let g:LanguageClient_autoStart = 1
+let g:LanguageClient_loggingFile =  expand('~/LanguageClient.log')
+let g:LanguageClient_loggingLevel='DEBUG'
+
+let g:LanguageClient_serverCommands = {
+            \ 'python': ['pyls'],
+            \ }
+set shell=/usr/bin/zsh
+
+" Or map each action separately
+nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+nnoremap <Leader>t :Pytest<CR>
+
+
+" F1: HELP
+nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
+" F3: NerdTreeToggle
+nnoremap <F4> :set paste<CR>
+nnoremap <S-F4> :set nopaste<CR>
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+nnoremap <silent> <F6> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
+nnoremap <F9> :LanguageClientStart<CR>
+nnoremap <F11> :q<cr>
+nnoremap <Leader><F11> :wqa<CR>
+nnoremap <F12> :w<CR>
+nnoremap <Leader><F12> :wa<CR>
+nnoremap <leader>r :set nonumber!<CR>
+
+set autowriteall
+
