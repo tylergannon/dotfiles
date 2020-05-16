@@ -69,6 +69,7 @@ else
   Plug 'junegunn/fzf.vim'
 endif
 
+Plug 'christoomey/vim-tmux-navigator'
 
 "" Include user's extra bundle
 if filereadable(expand("~/.vimrc.local.bundles"))
@@ -196,8 +197,8 @@ cnoreabbrev Qall qall
 
 "" Fern configuration
 let g:fern#renderer = "devicons"
-nnoremap <silent> <F3> :Fern . -drawer<CR>
-nnoremap <silent> <F5> :Fern . -drawer -toggle<CR>
+nnoremap <silent> <F3> :Fern . -drawer -toggle<CR>
+nnoremap <silent> <Leader><F3> :Fern . -reveal=%<CR>
 
 " grep.vim
 nnoremap <silent> <leader>f :Rgrep<CR>
